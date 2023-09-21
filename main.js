@@ -4,6 +4,7 @@ let headerText = document.getElementById("headerText");
 let parText = document.getElementById("parText");
 let btnClick = document.getElementById("btnClick");
 let rstClick = document.getElementById("rstClick");
+let symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "+"]
 
 //set eventlistener to load function on start up
 
@@ -56,6 +57,7 @@ let state = {
         {
             headerText: "Your symbol is...",
             parText: "&",
+            rstClick: "Reset"
         }
     ]
 }
