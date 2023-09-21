@@ -9,12 +9,15 @@ let rstClick = document.getElementById("rstClick");
 
 window.onload = renderPage
 
+pageNum = 0
+
 function renderPage() {
-    let pages = state.pages[0];
+    let pages = state.pages[pageNum];
     headerText.innerText = pages.headerText;
     parText.innerText = pages.parText;
     btnClick.innerText = pages.btnClick;
     rstClick.style.visibility = "hidden";
+    pageNum++
 }
 
 //set my state
@@ -49,6 +52,17 @@ let state = {
             headerText: "",
             parText: "Find your new number. Note the symbol beside your number",
             btnClick: "Reveal",
+        },
+        {
+            headerText: "Your symbol is...",
+            parText: "&",
         }
     ]
 }
+
+function increment() {
+    renderPage()
+}
+
+
+btnClick.addEventListener('click', increment)
