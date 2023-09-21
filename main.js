@@ -35,19 +35,16 @@ let state = {
             headerText: "Pick a number between 01-99",
             parText: "When you have your number, click Next",
             btnClick: "Next",
-            rstClick: "Reset",
         },
         {
             headerText: "Add both digits together to get a new number",
             parText: "Example: 14 is 1 + 4 = 5",
             btnClick: "Next",
-            rstClick: "Reset",
         },
         {
             headerText: "Subtract your new number from your original number",
             parText: "Example: 14 - 5 = 9",
             btnClick: "Next",
-            rstClick: "Reset",
         },
         {
             headerText: "",
