@@ -1,6 +1,7 @@
-* {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+@font-face {
+    font-family: 'RobotCondensed-Bold.ttf';
+    src: url('fonts/RobotoCondensed-Bold.ttf') format('truetype');
+  } 
 
 h1 {
     text-align: center;
@@ -10,6 +11,10 @@ p {
     text-align: center;
 }
 
+
+.col-3 {
+    background-color: rgb(211, 193, 193);
+}
 
 #btnClick {
     margin: 0;
