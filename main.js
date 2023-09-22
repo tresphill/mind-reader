@@ -38,22 +38,22 @@ function increment() {
 let state = {
     pages: [
         {
-            headerText: "I can read your mind",
+            headerText: "Bet I can read your mind.",
             parText: "",
             btnClick: "GO",
         },
         {
-            headerText: "Pick a number between 01-99",
+            headerText: "Pick a number between 01-99 then",
             parText: "When you have your number, click Next",
             btnClick: "Next",
         },
         {
-            headerText: "Add both digits together to get a new number",
+            headerText: "Add both digits together to get a new number. Stay with me.",
             parText: "Example: 14 is 1 + 4 = 5",
             btnClick: "Next",
         },
         {
-            headerText: "Subtract your new number from your original number",
+            headerText: "Subtract your new number from your original number. Lots of math, I know.",
             parText: "Example: 14 - 5 = 9",
             btnClick: "Next",
         },
