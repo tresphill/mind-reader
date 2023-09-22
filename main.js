@@ -1,30 +1,42 @@
-//set variables
+// set variables
+let headerText = document.getElementById("headerText");
+let parText = document.getElementById("parText");
+let btnClick = document.getElementById("btnClick");
+let rstClick = document.getElementById("rstClick");
+let symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "+"];
+let scrollSymbol = document.getElementById("scrollSymbol");
+let symbolIndex = 0;
+let pageNum = 0;
 
-let headerText = document.getElementById("headerText"); //header text that changes when pages cycle
-let parText = document.getElementById("parText"); //the paragraph text giving alternate instructions and examples
-let btnClick = document.getElementById("btnClick"); //this button cycles through the pages
-let rstClick = document.getElementById("rstClick");//this button resets to page one
-let symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "+"] //the list of symbols to choose from
 
-//set eventlistener to load function on start up
+// Set event listener to load function on start up
+window.onload = renderPage;
 
-window.onload = renderPage 
-
-pageNum = 0
-
-function renderPage() { //this function calls to the window load and loads first page
+function renderPage() {
     let pages = state.pages[pageNum];
     headerText.innerText = pages.headerText;
     parText.innerText = pages.parText;
     btnClick.innerText = pages.btnClick;
+
+    if (pages.symbol) {
+        parText.innerText = pages.parText + " " + pages.symbol;
+    }
+
     rstClick.style.visibility = "hidden";
-    pageNum++ //incrementing up by one, cycles to next page
 }
 
-//set my state as a variable
-//set my arrays to the pages array
+function increment() {
+    if (pageNum === state.pages.length - 1) {
+        state.pages[pageNum].symbol = getRandomSymbol();
+        pageNum = 0; // Reset pageNum to 0 when reaching the end
+    } else {
+        pageNum++;
+    }
+    renderPage();
+}
 
-let state = { //let variable with mulitple arrays set as pages
+// set my state as a variable
+let state = {
     pages: [
         {
             headerText: "I can read your mind",
@@ -53,15 +65,26 @@ let state = { //let variable with mulitple arrays set as pages
         },
         {
             headerText: "Your symbol is...",
-            parText: "&",
+            parText: "",
             rstClick: "Reset"
         }
     ]
+};
+
+function increment() {
+    if (pageNum === state.pages.length - 1) {
+        state.pages[pageNum].symbol = getRandomSymbol();
+        pageNum = 0; // Reset pageNum to 0 when reaching the end
+    } else {
+        pageNum++;
+    }
+    renderPage();
 }
 
-function increment() { //the function that cycles through my pages
-    renderPage() //variable that calls to the page incrementation
+
+function getRandomSymbol() {
+    const randomIndex = Math.floor(Math.random() * symbols.length);
+    return symbols[randomIndex];
 }
 
-
-btnClick.addEventListener('click', increment) //this gives my button function to cycle to next page
+btnClick.addEventListener('click', increment);
