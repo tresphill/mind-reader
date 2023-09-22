@@ -5,9 +5,8 @@ let btnClick = document.getElementById("btnClick");
 let rstClick = document.getElementById("rstClick");
 let symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "+"];
 let scrollSymbol = document.getElementById("scrollSymbol");
-let symbolIndex = 0;
-let pageNum = 0;
 
+let pageNum = 0;
 
 // Set event listener to load function on start up
 window.onload = renderPage;
