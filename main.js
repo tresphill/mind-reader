@@ -12,13 +12,13 @@ let pageNum = 0;
 window.onload = renderPage;
 
 function renderPage() {
-    let pages = state.pages[pageNum];
-    headerText.innerText = pages.headerText;
-    parText.innerText = pages.parText;
-    btnClick.innerText = pages.btnClick;
+    let page = state.pages[pageNum];
+    headerText.innerText = page.headerText;
+    parText.innerText = page.parText;
+    btnClick.innerText = page.btnClick;
 
-    if (pages.symbol) {
-        parText.innerText = pages.parText + " " + pages.symbol;
+    if (page.symbols) {
+        parText.innerText = page.parText + " " + page.symbols;
     }
 
     rstClick.style.visibility = "hidden";
@@ -26,13 +26,15 @@ function renderPage() {
 
 function increment() {
     if (pageNum === state.pages.length - 1) {
-        state.pages[pageNum].symbol = getRandomSymbol();
+       // state.pages[pageNum].symbols = getRandomSymbol();//
+       console.log("increment")
         pageNum = 0; // Reset pageNum to 0 when reaching the end
     } else {
         pageNum++;
     }
     renderPage();
 }
+const secretSymbol = getRandomSymbol(symbols);
 
 // set my state as a variable
 let state = {
@@ -58,32 +60,39 @@ let state = {
             btnClick: "Next",
         },
         {
-            headerText: symbols,
+            symbols: [],
             parText: "Find your new number. Note the symbol.",
             btnClick: "Reveal",
         },
         {
             headerText: "Your symbol is...",
-            parText: "",
-            rstClick: "Reset"
+            parText: secretSymbol,
+            btnClick: "Reset",
         }
     ]
 };
 
-function increment() {
-    if (pageNum === state.pages.length - 1) {
-        state.pages[pageNum].symbol = getRandomSymbol();
-        pageNum = 0; //resets pageNum to 0 when reaching the end
-    } else {
-        pageNum++;
+
+
+function getRandomSymbol(arr) {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    return arr[randomIndex];
+
+}
+
+
+
+for (let i = 0; i < 99; i++) {
+    const randomSymbol = getRandomSymbol(symbols)
+    if (i % 9 === 0) {
+        state.pages[4].symbols.push("\n" + i + " = " + secretSymbol);
     }
-    renderPage();
+    else {
+        state.pages[4].symbols.push("\n" + i + " = " + randomSymbol);
+
+    }
+
 }
 
-
-function getRandomSymbol() {
-    const randomIndex = Math.floor(Math.random() * symbols.length);
-    return symbols[randomIndex];
-}
 
 btnClick.addEventListener('click', increment);

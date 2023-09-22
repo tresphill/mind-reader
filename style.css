@@ -10,28 +10,30 @@ h1 {
 p {
     text-align: center;
 }
-
+#parText{
+    height: 70vh;
+}
 
 .col-3 {
     background-color: rgb(229, 223, 223);
 }
 
-#btnClick {
+/* #btnClick {
     margin: 0;
     position: absolute;
     top: 60%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-}
+} */
 
 #rstClick {
-    margin: 0;
+    /* margin: 0;
     position: absolute;
     top: 80%;
     left: 58%;
     -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
     border-radius: 50%;
     height: 70px;
     width: 70px;
