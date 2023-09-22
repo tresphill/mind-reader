@@ -48,18 +48,18 @@ let state = {
             btnClick: "Next",
         },
         {
-            headerText: "Add both digits together to get a new number. Stay with me.",
+            headerText: "Add both digits together to get a new number.",
             parText: "Example: 14 is 1 + 4 = 5",
             btnClick: "Next",
         },
         {
-            headerText: "Subtract your new number from your original number. Lots of math, I know.",
+            headerText: "Subtract new number from original number.",
             parText: "Example: 14 - 5 = 9",
             btnClick: "Next",
         },
         {
-            headerText: "",
-            parText: "Find your new number. Note the symbol beside your number",
+            headerText: symbols,
+            parText: "Find your new number. Note the symbol.",
             btnClick: "Reveal",
         },
         {
@@ -73,7 +73,7 @@ let state = {
 function increment() {
     if (pageNum === state.pages.length - 1) {
         state.pages[pageNum].symbol = getRandomSymbol();
-        pageNum = 0; // Reset pageNum to 0 when reaching the end
+        pageNum = 0; //resets pageNum to 0 when reaching the end
     } else {
         pageNum++;
     }
